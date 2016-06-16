@@ -23,6 +23,7 @@ echo "Checking URLs list. Results will be recorded to ${TEST_RESULT_FILE}"
 echo "Test started at: $(date)" >> ${TEST_RESULT_FILE}
 # loop through file with URL list and record HTTP status code against tested URL
 while read url ; do
-    ret=$(curl -I -s "$url" -o /dev/null -w "%{http_code}\n")
-        echo "$ret $url" >> $TEST_RESULT_FILE
+	case "$url" in \#*) continue ;; esac
+	ret=$(curl -I -s "$url" -o /dev/null -w "%{http_code}\n")
+	echo "$ret $url" >> $TEST_RESULT_FILE
 done < $URL_LIST_FILE
