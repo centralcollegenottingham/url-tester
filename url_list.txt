@@ -1,3 +1,5 @@
+# url_list.txt
+# Add each URL on a new line.
 https://www.centralnottingham.ac.uk
 https://www.google.co.uk
 https://github.com
